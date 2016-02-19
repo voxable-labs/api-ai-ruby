@@ -2,7 +2,7 @@ require 'http'
 require 'http/form_data'
 
 module ApiAiRuby
-  class RequestQuery
+  class Request
 
     attr_accessor :client, :headers, :options,  :request_method, :uri
 

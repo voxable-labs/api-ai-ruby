@@ -1,7 +1,7 @@
 require 'json'
 
 module ApiAiRuby
-  class VoiceRequest < ApiAiRuby::RequestQuery
+  class VoiceRequest < ApiAiRuby::Request
 
 
     # @param client [ApiAiRuby::Client]

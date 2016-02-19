@@ -1,5 +1,5 @@
 module ApiAiRuby
-  class TextRequest < ApiAiRuby::RequestQuery
+  class TextRequest < ApiAiRuby::Request
     def initialize (client, options={})
       @path = 'query'
 
