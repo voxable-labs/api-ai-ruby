@@ -8,6 +8,8 @@ module ApiAiRuby
     # @param options [Hash]
     # @return [ApiAiRuby::VoiceRequest]
     def initialize(client,  options = {})
+      @path = 'query'
+
       super client, options
 
       file = options.delete(:file)
@@ -16,6 +18,7 @@ module ApiAiRuby
           :voiceData => HTTP::FormData::File.new(file, filename: File.basename(file))
       }
       @options = options
+
       self
     end
 

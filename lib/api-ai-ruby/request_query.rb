@@ -7,12 +7,13 @@ module ApiAiRuby
     attr_accessor :client, :headers, :options,  :request_method, :uri
 
     # @param client [ApiAiRuby::Client]
+    # @param path [String] the path to the proper API endpoint
     # @param options [Hash]
     # @return [ApiAiRuby::TextRequest]
 
     def initialize(client, options = {})
       @client = client
-      @uri = client.api_base_url + 'query?v=' + client.api_version
+      @uri = client.api_base_url + '/' + @path + '?v=' + client.api_version
       @request_method = :post
       options[:lang] = client.api_lang
       @options = options
