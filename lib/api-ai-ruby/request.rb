@@ -1,5 +1,6 @@
 require 'http'
 require 'http/form_data'
+require 'uri'
 
 module ApiAiRuby
   class Request
@@ -13,20 +14,21 @@ module ApiAiRuby
 
     def initialize(client, options = {})
       @client = client
-      @uri = client.api_base_url + '/' + @path + '?v=' + client.api_version
+      @uri = client.api_base_url + @path + '?v=' + client.api_version
       @request_method = :post
-      options[:lang] = client.api_lang
+      options[:params] ||= {}
+      options[:params] = options[:params].merge({ lang: client.api_lang })
       @options = options
       @headers = {
           'Authorization': 'Bearer ' + client.client_access_token,
-          'ocp-apim-subscription-key': 'Bearer ' + client.client_access_token
+          'ocp-apim-subscription-key': client.subscription_key
       }
     end
 
     # @return [Array, Hash]
     def perform
-      options_key = @request_method == :get ? :params : :form
-      response = HTTP.with(@headers).public_send(@request_method, @uri.to_s, options_key => @options)
+      response = HTTP.with(@headers).public_send(@request_method, @uri.to_s, @options)
+
       response_body = symbolize_keys!(response.parse)
       response_headers = response.headers
       fail_or_return_response_body(response.code, response_body)

@@ -1,6 +1,6 @@
 module ApiAiRuby
   class Client
-    attr_accessor :client_access_token, :subscription_key
+    attr_accessor :client_access_token, :developer_access_token, :subscription_key
     attr_writer :user_agent, :api_version, :api_lang, :api_base_url
 
     # Initializes a new Client object
@@ -35,6 +35,7 @@ module ApiAiRuby
     def credentials
       {
           client_access_token: client_access_token,
+          developer_access_token: developer_access_token,
           subscription_key: subscription_key
       }
     end
@@ -46,14 +47,22 @@ module ApiAiRuby
 
     def text_request (query = '', options = {})
       raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
-      options[:query] = query
+      options[:params] ||= {}
+      options[:params] = options[:params].merge({ query: query })
       ApiAiRuby::TextRequest.new(self, options).perform
     end
 
     def voice_request(file_stream, options = {})
       raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
-      options[:file] = file_stream
+      options[:form] ||= {}
+      options[:form] = options[:form].merge({ file: file_stream })
       ApiAiRuby::VoiceRequest.new(self, options).perform
+    end
+
+    def update_entities_request(entities, options = {})
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
+      options[:json] = entities
+      ApiAiRuby::EntitiesRequest.new(self, options).perform
     end
 
   end
