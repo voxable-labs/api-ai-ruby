@@ -14,21 +14,38 @@ describe ApiAiRuby::Client do
     end
   end
 
-  describe '#credentials?' do
-    it 'returns true if all credentials are present' do
+  describe '#client_credentials?' do
+    it 'returns true if all client credentials are present' do
       client = ApiAiRuby::Client.new(subscription_key: 'SK', client_access_token: 'CS')
-      expect(client.credentials?).to be true
-    end
-    it 'returns false if any credentials are missing' do
-      client = ApiAiRuby::Client.new(subscription_key: 'SK')
-      expect(client.credentials?).to be false
+      expect(client.client_credentials?).to be_truthy
     end
 
-    it 'raises error on request without credentials' do
+    it 'returns false if any client credentials are missing' do
+      client = ApiAiRuby::Client.new(subscription_key: 'SK')
+      expect(client.client_credentials?).to be_falsey
+    end
+
+    it 'raises error on request without client credentials' do
       expect {subject.text_request '123'}.to raise_error(ApiAiRuby::ClientError)
       expect {subject.voice_request '123'}.to raise_error(ApiAiRuby::ClientError)
     end
+  end
 
+  describe '#developer_credentials?' do
+    it 'returns true if all developer credentials are present' do
+      client = ApiAiRuby::Client.new(subscription_key: 'SK', developer_access_token: 'CS')
+      expect(client.developer_credentials?).to be_truthy
+    end
+
+    it 'returns false if any developer credentials are missing' do
+      client = ApiAiRuby::Client.new(subscription_key: 'SK')
+      expect(client.developer_credentials?).to be_falsey
+    end
+
+    it 'raises error on request without developer credentials' do
+      expect {subject.text_request '123'}.to raise_error(ApiAiRuby::ClientError)
+      expect {subject.voice_request '123'}.to raise_error(ApiAiRuby::ClientError)
+    end
   end
 
   describe '#properties' do

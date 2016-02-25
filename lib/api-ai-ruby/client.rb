@@ -40,27 +40,32 @@ module ApiAiRuby
       }
     end
 
-    # @return [Boolean]
-    def credentials?
-      credentials.values.all?
+    # @return [Boolean] true if the client credentials are present
+    def client_credentials?
+      credentials[:client_access_token] && credentials[:subscription_key]
+    end
+
+    # @return [Boolean] true if the developer credentials are present
+    def developer_credentials?
+      credentials[:developer_access_token] && credentials[:subscription_key]
     end
 
     def text_request (query = '', options = {})
-      raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !client_credentials?
       options[:params] ||= {}
       options[:params] = options[:params].merge({ query: query })
       ApiAiRuby::TextRequest.new(self, options).perform
     end
 
     def voice_request(file_stream, options = {})
-      raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !client_credentials?
       options[:form] ||= {}
       options[:form] = options[:form].merge({ file: file_stream })
       ApiAiRuby::VoiceRequest.new(self, options).perform
     end
 
     def update_entities_request(entities, options = {})
-      raise ApiAiRuby::ClientError.new('Credentials missing') if !credentials?
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
       options[:json] = entities
       ApiAiRuby::EntitiesRequest.new(self, options).perform
     end
