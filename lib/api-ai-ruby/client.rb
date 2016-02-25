@@ -70,5 +70,10 @@ module ApiAiRuby
       ApiAiRuby::UpdateEntitiesRequest.new(self, options).perform
     end
 
+    def update_intent_request(intent, options = {})
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
+      options[:json] = intent
+      ApiAiRuby::UpdateIntentRequest.new(self, options).perform
+    end
   end
 end
