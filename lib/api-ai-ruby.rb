@@ -5,5 +5,5 @@ require 'api-ai-ruby/client_error'
 require 'api-ai-ruby/request'
 require 'api-ai-ruby/text_request'
 require 'api-ai-ruby/voice_request'
-require 'api-ai-ruby/entities_request'
+require 'api-ai-ruby/update_entities_request'
 

@@ -2,8 +2,6 @@ require 'json'
 
 module ApiAiRuby
   class VoiceRequest < ApiAiRuby::Request
-
-
     # @param client [ApiAiRuby::Client]
     # @param options [Hash]
     # @return [ApiAiRuby::VoiceRequest]
@@ -21,6 +19,5 @@ module ApiAiRuby
 
       self
     end
-
   end
 end

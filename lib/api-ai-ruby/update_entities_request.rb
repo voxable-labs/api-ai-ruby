@@ -1,7 +1,7 @@
 require 'json'
 
 module ApiAiRuby
-  class EntitiesRequest < ApiAiRuby::Request
+  class UpdateEntitiesRequest < ApiAiRuby::Request
     def initialize (client, options={})
       @path = 'entities'
 
