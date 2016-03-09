@@ -7,4 +7,5 @@ require 'api-ai-ruby/text_request'
 require 'api-ai-ruby/voice_request'
 require 'api-ai-ruby/update_entities_request'
 require 'api-ai-ruby/update_intent_request'
+require 'api-ai-ruby/get_intent_request'
 
