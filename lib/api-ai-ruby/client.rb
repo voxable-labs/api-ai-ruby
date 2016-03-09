@@ -81,5 +81,10 @@ module ApiAiRuby
       options[:iid] = iid
       ApiAiRuby::GetIntentRequest.new(self, options).perform
     end
+
+    def get_intents_request(options = {})
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
+      ApiAiRuby::GetIntentRequest.new(self, options).perform
+    end
   end
 end
