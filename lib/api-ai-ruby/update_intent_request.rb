@@ -3,7 +3,7 @@ require 'json'
 module ApiAiRuby
   class UpdateIntentRequest < ApiAiRuby::Request
     def initialize (client, options={})
-      @path = "intents/#{ options[:json]["id"] }"
+      @path = "intents/#{ options[:json][:id] }"
 
       super client, options
       @request_method = :put
