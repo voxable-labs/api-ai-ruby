@@ -1,6 +1,6 @@
 module ApiAiRuby
   class Client
-    attr_accessor :client_access_token, :developer_access_token, :subscription_key
+    attr_accessor :client_access_token, :developer_access_token
     attr_writer :user_agent, :api_version, :api_lang, :api_base_url
 
     # Initializes a new Client object
@@ -35,19 +35,18 @@ module ApiAiRuby
     def credentials
       {
           client_access_token: client_access_token,
-          developer_access_token: developer_access_token,
-          subscription_key: subscription_key
+          developer_access_token: developer_access_token
       }
     end
 
     # @return [Boolean] true if the client credentials are present
     def client_credentials?
-      credentials[:client_access_token] && credentials[:subscription_key]
+      credentials[:client_access_token]
     end
 
     # @return [Boolean] true if the developer credentials are present
     def developer_credentials?
-      credentials[:developer_access_token] && credentials[:subscription_key]
+      credentials[:developer_access_token]
     end
 
     def text_request (query = '', options = {})

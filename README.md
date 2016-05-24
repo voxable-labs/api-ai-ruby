@@ -11,8 +11,7 @@ Just pass correct credentials to **ApiAiRuby::Client** constructor
 
 ```ruby
 client = ApiAiRuby::Client.new(
-    :client_access_token => 'YOUR_ACCESS_TOKEN',
-    :subscription_key => 'YOUR_SUBSCRIPTION_KEY'
+    :client_access_token => 'YOUR_CLIENT_ACCESS_TOKEN',
 )
 ```
 After that you can send text requests to the https://api.ai with command
@@ -60,7 +59,6 @@ During client instantiating you can additionally set parameters like **api url**
 
 ```ruby
 ApiAiRuby::Client.new(
-    subscription_key: 'YOUR_SUBSCRIPTION_KEY',
     client_access_token: 'YOUR_ACCESS_TOKEN',
     api_lang: 'FR',
     api_base_url: 'http://example.com/v1/',

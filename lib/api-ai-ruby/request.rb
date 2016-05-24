@@ -20,8 +20,7 @@ module ApiAiRuby
       options[:params] = options[:params].merge({ lang: client.api_lang })
       @options = options
       @headers = {
-          'Authorization': 'Bearer ' + client.client_access_token,
-          'ocp-apim-subscription-key': client.subscription_key
+          'Authorization': 'Bearer ' + client.client_access_token
       }
     end
 
@@ -58,6 +57,5 @@ module ApiAiRuby
       end
       object
     end
-
   end
 end
