@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'api-ai-ruby/constants'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'api-ai-ruby'
+  spec.name          = 'voxable-api-ai-ruby'
   spec.version       = ApiAiRuby::Constants::VERSION
   spec.authors       = ['api.ai']
   spec.email         = ['shingarev@api.ai']
   spec.summary       = %q{ruby SDK for https://api.ai }
-  spec.description   = %q{Plugin makes it easy to integrate your Ruby application with https://api.ai natural language processing service.}
+  spec.description   = %q{Voxable's fork of the official API.AI Ruby gem. This probably is not the gem you're looking for. :)}
   spec.homepage      = 'https://api.ai'
   spec.license       = 'Apache 2.0 License'
 
