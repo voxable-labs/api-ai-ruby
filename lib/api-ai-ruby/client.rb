@@ -85,5 +85,16 @@ module ApiAiRuby
       raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
       ApiAiRuby::GetIntentRequest.new(self, options).perform
     end
+
+    def get_entity_request(eid, options = {})
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
+      options[:eid] = eid
+      ApiAiRuby::GetEntityRequest.new(self, options).perform
+    end
+
+    def get_entities_request(options = {})
+      raise ApiAiRuby::ClientError.new('Credentials missing') if !developer_credentials?
+      ApiAiRuby::GetEntityRequest.new(self, options).perform
+    end
   end
 end

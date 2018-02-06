@@ -1,5 +1,3 @@
-require 'json'
-
 module ApiAiRuby
   class GetIntentRequest < ApiAiRuby::Request
     def initialize (client, options={})
