@@ -1,7 +1,7 @@
 require 'json'
 
-module ApiAiRuby
-  class UpdateEntitiesRequest < ApiAiRuby::Request
+module VoxableApiAiRuby
+  class UpdateEntitiesRequest < VoxableApiAiRuby::Request
     def initialize (client, options={})
       @path = 'entities'
 

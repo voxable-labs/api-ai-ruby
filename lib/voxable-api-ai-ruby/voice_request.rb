@@ -1,10 +1,10 @@
 require 'json'
 
-module ApiAiRuby
-  class VoiceRequest < ApiAiRuby::Request
-    # @param client [ApiAiRuby::Client]
+module VoxableApiAiRuby
+  class VoiceRequest < VoxableApiAiRuby::Request
+    # @param client [VoxableApiAiRuby::Client]
     # @param options [Hash]
-    # @return [ApiAiRuby::VoiceRequest]
+    # @return [VoxableApiAiRuby::VoiceRequest]
     def initialize(client,  options = {})
       @path = 'query'
 

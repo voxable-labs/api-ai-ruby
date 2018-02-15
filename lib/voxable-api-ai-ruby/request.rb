@@ -2,15 +2,15 @@ require 'http'
 require 'http/form_data'
 require 'uri'
 
-module ApiAiRuby
+module VoxableApiAiRuby
   class Request
 
     attr_accessor :client, :headers, :options,  :request_method, :uri
 
-    # @param client [ApiAiRuby::Client]
+    # @param client [VoxableApiAiRuby::Client]
     # @param path [String] the path to the proper API endpoint
     # @param options [Hash]
-    # @return [ApiAiRuby::TextRequest]
+    # @return [VoxableApiAiRuby::TextRequest]
 
     def initialize(client, options = {})
       @client = client
@@ -40,7 +40,7 @@ module ApiAiRuby
     def fail_or_return_response_body(code, body)
       error = false
       if code != 200 || ( !body.kind_of?(Array) && body[:status] && body[:status][:code] != 200 )
-        error = ApiAiRuby::RequestError.new body[:status][:errorDetails], body[:status][:code]
+        error = VoxableApiAiRuby::RequestError.new body[:status][:errorDetails], body[:status][:code]
       end
       fail(error) if error
       body

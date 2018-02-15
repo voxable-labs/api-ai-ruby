@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'api-ai-ruby/constants'
+require 'voxable-api-ai-ruby/constants'
 
 Gem::Specification.new do |spec|
   spec.name          = 'voxable-api-ai-ruby'
-  spec.version       = ApiAiRuby::Constants::VERSION
+  spec.version       = VoxableApiAiRuby::Constants::VERSION
   spec.authors       = ['api.ai']
   spec.email         = ['shingarev@api.ai']
   spec.summary       = %q{ruby SDK for https://api.ai }

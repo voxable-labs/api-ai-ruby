@@ -1,4 +1,4 @@
-module ApiAiRuby
+module VoxableApiAiRuby
   class RequestError < StandardError
     #return [Integer]
     attr_reader :code
@@ -7,7 +7,7 @@ module ApiAiRuby
     #
     # @param message [Exception, String]
     # @param code [Integer]
-    # @return [ApiAiRuby::RequestError]
+    # @return [VoxableApiAiRuby::RequestError]
     def initialize(message = '', code = nil)
       super(message)
       @code = code

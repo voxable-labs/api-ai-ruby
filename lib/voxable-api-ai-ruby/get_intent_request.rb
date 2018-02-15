@@ -1,5 +1,5 @@
-module ApiAiRuby
-  class GetIntentRequest < ApiAiRuby::Request
+module VoxableApiAiRuby
+  class GetIntentRequest < VoxableApiAiRuby::Request
     def initialize (client, options={})
       @path = "intents/#{ options.delete(:iid) }"
 

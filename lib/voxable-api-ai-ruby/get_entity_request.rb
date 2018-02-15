@@ -1,5 +1,5 @@
-module ApiAiRuby
-  class GetEntityRequest < ApiAiRuby::Request
+module VoxableApiAiRuby
+  class GetEntityRequest < VoxableApiAiRuby::Request
     def initialize(client, options={})
       @path = "entities/#{ options.delete(:eid) }"
 

@@ -1,7 +1,7 @@
 require 'json'
 
-module ApiAiRuby
-  class UpdateIntentRequest < ApiAiRuby::Request
+module VoxableApiAiRuby
+  class UpdateIntentRequest < VoxableApiAiRuby::Request
     def initialize (client, options={})
       @path = "intents/#{ options[:json][:id] }"
 

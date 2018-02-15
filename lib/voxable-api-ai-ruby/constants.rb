@@ -1,4 +1,4 @@
-module ApiAiRuby
+module VoxableApiAiRuby
   class Constants
     VERSION = '2.1.1'
     DEFAULT_BASE_URL = 'https://api.api.ai/v1/'

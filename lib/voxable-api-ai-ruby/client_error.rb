@@ -1,4 +1,4 @@
-module ApiAiRuby
+module VoxableApiAiRuby
   class ClientError < StandardError
 
   end

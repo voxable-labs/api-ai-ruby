@@ -10,7 +10,7 @@ SimpleCov.start do
 end
 
 
-require 'api-ai-ruby'
+require 'voxable-api-ai-ruby'
 require 'rspec'
 #require 'webmock/rspec'
 

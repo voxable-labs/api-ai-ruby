@@ -1,5 +1,5 @@
-module ApiAiRuby
-  class TextRequest < ApiAiRuby::Request
+module VoxableApiAiRuby
+  class TextRequest < VoxableApiAiRuby::Request
     def initialize (client, options={})
       @path = 'query'
 
