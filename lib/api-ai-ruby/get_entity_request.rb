@@ -1,6 +1,6 @@
 module ApiAiRuby
   class GetEntityRequest < ApiAiRuby::Request
-    def initialize (client, options={})
+    def initialize(client, options={})
       @path = "entities/#{ options.delete(:eid) }"
 
       super client, options

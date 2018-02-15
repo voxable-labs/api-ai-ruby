@@ -20,7 +20,8 @@ module ApiAiRuby
       options[:params] = options[:params].merge({ lang: client.api_lang })
       @options = options
       @headers = {
-          'Authorization': 'Bearer ' + client.client_access_token
+          'Authorization': ('Bearer ' + client.client_access_token),
+          'Content-Type': 'application/json; charset=utf-8'
       }
     end
 
