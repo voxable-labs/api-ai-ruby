@@ -1,5 +1,7 @@
 # The API.AI ruby gem
 
+**⚠️ This is a forked version of the official Dialogflow Ruby client. It's out-of-date, and used by [Voxable](http://voxable.io) for our own projects. You're welcome to use it, of course, but you likely want [the official client gem](https://github.com/dialogflow/dialogflow-ruby-client).**
+
 A Ruby SDK to the https://api.ai natural language processing service.
 
 ## Installation
